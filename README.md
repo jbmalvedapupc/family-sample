@@ -1,2 +1,2 @@
-Database: family
+Database: family   
 Run ```php artisan migrate:fresh --seed```
