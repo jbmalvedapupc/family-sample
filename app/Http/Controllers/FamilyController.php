@@ -23,14 +23,9 @@ class FamilyController extends Controller
 
     public function store(Request $request, Family $family)
     {
-        $children = [];
+        $child = new Child($request->all());
+        $family->children()->save($child);
 
-        foreach ($request['child_name'] as $child) {
-            $children[] = new Child([
-                'child_name' => $child
-            ]);
-        }
-        
-        $family->children()->saveMany($children);
+        return redirect()->back();
     }
 }
